@@ -1,0 +1,41 @@
+{
+  "name": "voryx/event-loop",
+  "type": "library",
+  "description": "Global static wrapper for react event-loop",
+  "keywords": [
+    "global",
+    "static",
+    "eventloop",
+    "event-loop",
+    "timer"
+  ],
+  "license": "MIT",
+  "authors": [
+    { 
+        "name": "Matt Bonneau", "email": "matt@bonneau.net", "role": "Developer" 
+    },
+    { 
+        "name": "David Dan", "email": "davidwdan@gmail.com", "role": "Developer" 
+    }
+  ],
+  "require": {
+    "react/event-loop": "^1.0 || ^0.5 || ^0.4.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6"
+  },
+  "autoload": {
+    "psr-4": {
+      "EventLoop\\": "src"
+    },
+    "files": [
+      "src/functions.php",
+      "src/bootstrap.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "EventLoop\\Tests\\": "tests"
+    }
+  }
+}

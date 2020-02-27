@@ -1,0 +1,33 @@
+version: '3.7'
+# Define services
+services:
+  # PHP CLI App Service
+  reactphpcli:
+    # Configuration for building the docker image for the service
+    image: garatasm/reactphpcli_reactphp-cli:latest
+    volumes:
+      - type: bind
+        source: /root/reactphpcli/srv/app
+        target: /srv/app
+    #ports:
+    #  - "####:####" # Forward the exposed port #### on the container to port #### on the host machine
+    deploy:
+      replicas: 3
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+    environment: # Pass environment variables to the service
+      PGSQL_HOST: "172.16.102.217"
+      PGSQL_PORT: "5432"
+      PGSQL_USER: "webadmin"
+      PGSQL_PASSWORD: "UdlRj4pEUD"
+      PGSQL_DATABASE: "dldata"
+      REDIS_HOST: "172.16.103.119"
+      REDIS_PORT: "6379"
+      REDIS_CHAN: "dljobs0 dljobs1"
+      REDIS_USER: "default"
+      REDIS_PASSWORD: "DCArcv62831"
+      REDIS_TLS: 0

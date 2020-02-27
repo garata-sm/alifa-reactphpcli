@@ -1,0 +1,17 @@
+language: php
+sudo: required
+
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+  - 7.3
+
+services:
+  - postgresql
+
+install:
+  - composer install
+
+script:
+  - vendor/bin/phpunit
